@@ -83,97 +83,28 @@ $tsav = 0;
 $arfile = '';
 $b = 0;
 
-$tc_java = 13042;
-$tc_javascript = 22086;
-$tc_r = 1782;
-$tc_php = 8388;
-$tc_python = 14106;
-$tc_swift = 2029;
-$tc_chash = 10462;
-$tc_cplus = 7415;
-$tc_obj = 1396;
+$tc_java = 0;
+$tc_javascript = 0;
+$tc_r = 0;
+$tc_php = 0;
+$tc_python = 0;
+$tc_swift = 0;
+$tc_chash = 0;
+$tc_cplus = 0;
+$tc_obj = 0;
 
 
-$tc_win = 15727;
-$tc_lin = 8367;
-$tc_mac = 8160;
+$tc_win = 0;
+$tc_lin = 0;
+$tc_mac = 0;
 
 for($i=2;$i<=$arrayCount;$i++) {
-/*$c_obj = trim($allDataInSheet[$i]["AB"]);
-$c_swift = trim($allDataInSheet[$i]["AC"]);
-$c_java = trim($allDataInSheet[$i]["AE"]);
-$c_javascript = trim($allDataInSheet[$i]["AF"]);
-#$c_css = trim($allDataInSheet[$i]["AG"]);
-$c_php = trim($allDataInSheet[$i]["AH"]);
-$c_python = trim($allDataInSheet[$i]["AI"]);
-#$c_ruby = trim($allDataInSheet[$i]["AJ"]);
-#$c_sql = trim($allDataInSheet[$i]["AK"]);
-$c_chash = trim($allDataInSheet[$i]["AL"]);
-$c_cplus = trim($allDataInSheet[$i]["AM"]);
-$c_r = trim($allDataInSheet[$i]["AP"]);*/
+
 $c_ser = strtolower(trim($allDataInSheet[$i]["B"]));
 $c_os = strtolower(trim($allDataInSheet[$i]["C"]));
 
 
-/*if ($c_java != ''){
-	$c_java = 1;	
-} else {
-	$c_java = 0;
-}
-
-
-if ($c_javascript != ''){
-	$c_javascript = 1;
-} else {
-	$c_javascript = 0;
-}
-
-
-if ($c_php != ''){
-	$c_php = 1;
-} else {
-	$c_php = 0;
-}
-
-if ($c_python != ''){
-	$c_python = 1;
-} else {
-	$c_python = 0;
-}
-
-
-if ($c_chash != ''){
-	$c_chash = 1;
-} else {
-	$c_chash = 0;
-}
-
-if ($c_cplus != ''){
-	$c_cplus = 1;
-} else {
-	$c_cplus = 0;
-}
-
-if ($c_obj != ''){
-	$c_obj = 1;
-} else {
-	$c_obj = 0;
-}
-
-if ($c_swift != ''){
-	$c_swift = 1;
-} else {
-	$c_swift = 0;
-}
-
-if ($c_r != ''){
-	$c_r = 1;
-} else {
-	$c_r = 0;
-}
-*/
 $c_ser = $c_ser.';';
-
 if ((strpos($c_ser, 'java;') !== false) || (strpos($c_ser, ';java;') !== false) || ($c_ser == 'java')) {
 	 $c_java = 1;
 } else{
@@ -271,17 +202,6 @@ $tc_chash += $c_chash;
 $tc_cplus += $c_cplus;
 $tc_obj += $c_obj;
 
-
-
-
-
-
-
-$c_year = 2020;
-
-
-
-
 $insertTable3 = "INSERT INTO exctracttable(`c_java`, `c_javascript`, `c_r`, `c_php`, `c_python`, `c_swift`, `c_chash`, `c_cplus`, `c_obj`, `c_os`, `c_year`) VALUES ('$c_java','$c_javascript','$c_r','$c_php','$c_python','$c_swift','$c_chash','$c_cplus','$c_obj','$rc_os','$c_year')";
 
 if(mysqli_query($db, $insertTable3)){
@@ -289,7 +209,6 @@ if(mysqli_query($db, $insertTable3)){
 } else{
     //echo "ERROR: Could not able to execute $insertTable3. " . mysqli_error($db);
 }
-
 
 
 $msg = 'Record has been updated. <div style="Padding:20px 0 0 0;"><a href="">Go Back to tutorial</a></div>';
@@ -310,8 +229,6 @@ $tcp_swift = ($tc_swift/$tl) * 100;
 $tcp_chash = ($tc_chash/$tl) * 100;
 $tcp_cplus = ($tc_cplus/$tl) * 100;
 $tcp_obj = ($tc_obj/$tl) * 100;
-
-
 
 $tcp_win = ($tc_win/$to) * 100;
 $tcp_lin = ($tc_lin/$to) * 100;
@@ -349,13 +266,10 @@ if(mysqli_query($db, $insertTable3)){
     //echo "ERROR: Could not able to execute $insertTable3. " . mysqli_error($db);
 }
 
-
 }
 echo "<div style='font: bold 18px arial,verdana;padding: 0 0 0 160px;'>".@$msg.@$arfile."</div>";
-//}
+
 ?>
-
-
 
 </form>
 
